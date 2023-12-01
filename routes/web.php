@@ -20,4 +20,7 @@ Route::get("/", [HomeController::class,'index']);
 Route::get('/trangchu',[HomeController::class,'index'] );
 
 //BackEnd
-Route::get('/admin',[AdminController::class,'adminpage'] );
+Route::get('/adminlogin',[AdminController::class,'adminlogin'] );
+Route::get('/dashboard',[AdminController::class,'showdashboard'] );
+    //dang nhap trang admin
+Route::post('/admin-dashboard',[AdminController::class,'dashboard'] );
