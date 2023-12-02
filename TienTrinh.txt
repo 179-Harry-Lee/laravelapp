@@ -1,7 +1,16 @@
-- 12/2/2023
+**** 12/2/2023
+-Giao dien:
 + Giao dien trang chu
 + Giao dien admin
+
+-Dang nhap:
 + Giao dien dang nhap admin
 + Xuat loi khi dang nhap sai
 + logout
+
+-Danh muc san pham
++ Tao Danh Muc San Pham
++ Xuat ra tat ca danh muc hien co
+
+
 
