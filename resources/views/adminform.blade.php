@@ -234,7 +234,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="{{('backend/images/2.png')}}">
-                <span class="username">Harry Lee</span>
+                <span class="username">
+        <?php
+		$name = Session::get('admin_name');
+		if ($name) {
+			echo $name;
+		    }
+	    ?>
+                </span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
@@ -259,18 +266,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li>
                     <a class="active" href="{{URL::to('/dashboard')}}">
                         <i class="fa fa-dashboard"></i>
-                        <span>Quan Ly San Pham</span>
+                        <span>Trang chinh</span>
                     </a>
                 </li>
                 
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Quan Ly Tai Khoan</span>
+                        <span>Quan Ly Danh Muc San Pham</span>
                     </a>
                     <ul class="sub">
-						<li><a href="typography.html">Typography</a></li>
-						<li><a href="glyphicon.html">glyphicon</a></li>
+						<li><a href="{{URL::to('/add-category-product')}}">Them Danh Muc</a></li>
+						<li><a href="{{URL::to('/all-category-product')}}">Xuat Danh Muc</a></li>
                         <li><a href="grids.html">Grids</a></li>
                     </ul>
                 </li>

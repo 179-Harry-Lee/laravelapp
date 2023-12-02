@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,14 @@ Route::get('/trangchu',[HomeController::class,'index'] );
 //BackEnd
 Route::get('/adminlogin',[AdminController::class,'adminlogin'] );
 Route::get('/dashboard',[AdminController::class,'showdashboard'] );
+
     //dang nhap trang admin
 Route::post('/admin-dashboard',[AdminController::class,'dashboard'] );
+
     //Dang xuat
 Route::get('/logout',[AdminController::class,'logout'] );
+
+    //Danh muc san pham
+Route::get('/add-category-product',[CategoryProduct::class,'add_category_product'] );
+Route::get('/all-category-product',[CategoryProduct::class,'all_category_product'] );
+Route::post('/save-category-product',[CategoryProduct::class,'save_category_product'] );

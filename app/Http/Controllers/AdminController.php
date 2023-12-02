@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Contracts\Session\Session;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -38,6 +38,9 @@ class AdminController extends Controller
         }
     }
     public function logout(Request $request){
-        echo'click thanh cong';
+        FacadesSession::put('admin_name',null);
+        FacadesSession::put('admin_id',null);
+        return Redirect::to('/adminlogin');
+
     }
 }
