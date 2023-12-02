@@ -24,3 +24,5 @@ Route::get('/adminlogin',[AdminController::class,'adminlogin'] );
 Route::get('/dashboard',[AdminController::class,'showdashboard'] );
     //dang nhap trang admin
 Route::post('/admin-dashboard',[AdminController::class,'dashboard'] );
+    //Dang xuat
+Route::get('/logout',[AdminController::class,'logout'] );
