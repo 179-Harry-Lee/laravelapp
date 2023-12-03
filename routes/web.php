@@ -34,3 +34,7 @@ Route::get('/logout',[AdminController::class,'logout'] );
 Route::get('/add-category-product',[CategoryProduct::class,'add_category_product'] );
 Route::get('/all-category-product',[CategoryProduct::class,'all_category_product'] );
 Route::post('/save-category-product',[CategoryProduct::class,'save_category_product'] );
+
+    //Hien thi icon trong trang xuat san pham
+Route::get('/unactive-category-product/{ $category_product_id }',[CategoryProduct::class,'unactive_category_product'] );
+Route::get('/active-category-product/{ $category_product_id }',[CategoryProduct::class,'active_category_product'] );

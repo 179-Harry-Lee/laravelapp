@@ -49,9 +49,13 @@
               <td><span class="text-ellipsis">
                 <?php
               if($cate_pro->category_status==0){
-                  echo 'An';
+                ?>
+                <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="icon-eye-close"></span></a> ;
+                <?php
               }else {
-                  echo 'Hien thi';
+                ?>
+                  <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}"><span class="fa fa-eye"></span></a>;
+                <?php  
               }
                 ?>
               </span>

@@ -12,12 +12,16 @@ class CategoryProduct extends Controller
     public function add_category_product(){
         return view('/add_category_product');
     }
+
+
     public function all_category_product(){
 
         $all_category_product = DB::table('tbl_category_product')->get() ;
         $manager_category_product = view('all_category_product')->with('all_category_product',$all_category_product) ;
         return view('adminform')->with('all_category_product',$manager_category_product) ;
     }
+
+
     public function save_category_product(Request $request){
     
 
@@ -29,4 +33,15 @@ class CategoryProduct extends Controller
          FacadesSession::put('message','Them danh muc san pham thanh cong');
          return Redirect::to('all-category-product');
     }
+
+    public function unactive_category_product($category_product_id){
+        
+    }
+
+    public function active_category_product($category_product_id){
+        
+    }
+    
+    
+    
 }
