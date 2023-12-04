@@ -36,16 +36,24 @@ class CategoryProduct extends Controller
 
     public function unactive_category_product($category_product_id){
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);
-        FacadesSession::put('message','Khong kich hoat danh muc san pham thanh cong');
+        FacadesSession::put('message','An danh muc san pham thanh cong');
         return Redirect::to('all-category-product');
     }
 
     public function active_category_product($category_product_id){
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status' =>0]);
-        FacadesSession::put('message','kich hoat danh muc san pham thanh cong');
+        FacadesSession::put('message','Hien thi danh muc san pham thanh cong');
         return Redirect::to('all-category-product');
     }
     
-    
+    public function edit_category_product($category_product_id){
+        $edit_category_product = DB::table('tbl_category_product')->where('category_id',$category_product_id)->get() ;
+        $manager_category_product = view('edit_category_product')->with('edit_category_product',$edit_category_product) ;
+        return view('adminform')->with('edit_category_product',$manager_category_product) ;
+    }
+
+    public function delete_category_product($category_product_id){
+        
+    }
     
 }

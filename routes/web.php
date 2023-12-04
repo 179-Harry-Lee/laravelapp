@@ -38,3 +38,8 @@ Route::post('/save-category-product',[CategoryProduct::class,'save_category_prod
     //Hien thi icon trong trang xuat san pham
 Route::get('/unactive-category-product/{category_product_id}',[CategoryProduct::class,'unactive_category_product'] );
 Route::get('/active-category-product/{category_product_id}',[CategoryProduct::class,'active_category_product'] );
+    //Cap nhat danh muc san pham
+Route::get('/edit-category-product/{category_product_id}',[CategoryProduct::class,'edit_category_product'] );
+
+
+Route::get('/delete-category-product/{category_product_id)',[CategoryProduct::class,'delete_category_product'] );
