@@ -52,7 +52,14 @@ class CategoryProduct extends Controller
         return view('adminform')->with('edit_category_product',$manager_category_product) ;
     }
 
-    public function delete_category_product($category_product_id){
+    public function update_category_product(Request $request,$category_product_id){
+        $data = array();
+        $data['category_name'] = $request->category_product_name;
+        $data['category_desc'] = $request->category_product_desc;
+
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update($data);
+        FacadesSession::put('message','Cap nhat danh muc thanh cong');
+        return Redirect::to('all-category-product');
         
     }
     

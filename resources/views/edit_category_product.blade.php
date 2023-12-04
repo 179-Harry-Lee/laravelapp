@@ -19,7 +19,7 @@
                         @foreach ( $edit_category_product as $key => $edit_value )
                             
     
-                        <form role="form" action="{{URL::to('/update-category-product')}}" method="post">
+                        <form role="form" action="{{URL::to('/update-category-product/'.$edit_value->category_id)}}" method="post">
                             {{ csrf_field() }}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ten danh muc</label>
@@ -31,7 +31,7 @@
                         </div>
                         
                         
-                        <button type="submit" name="add_category_product" class="btn btn-info">Cap nhat danh muc</button>
+                        <button type="submit" name="update_category_product" class="btn btn-info">Cap nhat danh muc</button>
                     </form>
                     </div>
                     @endforeach

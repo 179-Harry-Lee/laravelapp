@@ -281,6 +281,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="grids.html">Grids</a></li>
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quan Ly San Pham</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/add-product')}}">Them san pham</a></li>
+						<li><a href="{{URL::to('/all-product')}}">Xuat danh sach san pham</a></li>
+                        <li><a href="grids.html">Grids</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-bullhorn"></i>
@@ -291,6 +302,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="javascript:;">
                         <i class="fa fa-th"></i>
                         <span>Quan Ly Hoa Don</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="basic_table.html">Basic Table</a></li>
+                        <li><a href="responsive_table.html">Responsive Table</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-th"></i>
+                        <span>Quan Ly San Pham</span>
                     </a>
                     <ul class="sub">
                         <li><a href="basic_table.html">Basic Table</a></li>
