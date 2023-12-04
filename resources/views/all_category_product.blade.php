@@ -27,6 +27,13 @@
         </div>
       </div>
       <div class="table-responsive">
+                  <?php
+		                $message = Session::get('message');
+		                if ($message) {
+			            echo $message;
+			            Session::put('message',null);
+		                }
+	                ?>
         <table class="table table-striped b-t b-light">
           <thead>
             <tr>
@@ -50,11 +57,11 @@
                 <?php
               if($cate_pro->category_status==0){
                 ?>
-                <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="icon-eye-close"></span></a> ;
+                <a href="{{URL::to('/unactive-category-product/'.$cate_pro->category_id)}}"><span class="icon-eye-close"></span></a> 
                 <?php
               }else {
                 ?>
-                  <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}"><span class="fa fa-eye"></span></a>;
+                  <a href="{{URL::to('/active-category-product/'.$cate_pro->category_id)}}"><span class="fa fa-eye"></span></a>
                 <?php  
               }
                 ?>

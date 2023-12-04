@@ -35,11 +35,15 @@ class CategoryProduct extends Controller
     }
 
     public function unactive_category_product($category_product_id){
-        
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status'=>1]);
+        FacadesSession::put('message','Khong kich hoat danh muc san pham thanh cong');
+        return Redirect::to('all-category-product');
     }
 
     public function active_category_product($category_product_id){
-        
+        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update(['category_status' =>0]);
+        FacadesSession::put('message','kich hoat danh muc san pham thanh cong');
+        return Redirect::to('all-category-product');
     }
     
     
