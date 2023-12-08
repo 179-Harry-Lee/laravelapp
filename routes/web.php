@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\HomeController;
@@ -21,6 +22,16 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [HomeController::class,'index']);
 Route::get('/trangchu',[HomeController::class,'index'] );
 
+// Login user
+Route::get('/login',[HomeController::class,'login'] );
+// Route::get('/',[HomeController::class,'showhome'] );
+    
+    //dang nhap trang admin
+Route::post('/user-home',[HomeController::class,'homeUser'] );
+
+
+
+
 //BackEnd
 Route::get('/adminlogin',[AdminController::class,'adminlogin'] );
 Route::get('/dashboard',[AdminController::class,'showdashboard'] );
@@ -36,7 +47,7 @@ Route::get('/add-category-product',[CategoryProduct::class,'add_category_product
 Route::get('/all-category-product',[CategoryProduct::class,'all_category_product'] );
 Route::post('/save-category-product',[CategoryProduct::class,'save_category_product'] );
 
-    //Hien thi icon trong trang xuat san pham
+    //Hien thi icon trong trang xuat danh muc san pham
 Route::get('/unactive-category-product/{category_product_id}',[CategoryProduct::class,'unactive_category_product'] );
 Route::get('/active-category-product/{category_product_id}',[CategoryProduct::class,'active_category_product'] );
     //Cap nhat danh muc san pham
@@ -51,3 +62,15 @@ Route::get('/delete-category-product/{category_product_id}',[CategoryProduct::cl
     //San pham
 Route::get('/add-product',[ProductController::class,'add_product'] );
 Route::post('/save-product',[ProductController::class,'save_product'] );
+
+    //Cap nhat san pham
+Route::get('/edit-product/{product_id}',[ProductController::class,'edit_product'] );
+Route::get('/all-product',[ProductController::class,'all_product'] );
+Route::post('/update-product/{product_id}',[ProductController::class,'update_product'] );
+Route::get('/delete-product/{product_id}',[ProductController::class,'delete_product'] );
+
+    
+    //Hien thi icon trang xuan san pham
+Route::get('/unactive-product/{product_id}',[ProductController::class,'unactive_product'] );
+Route::get('/active-product/{product_id}',[ProductController::class,'active_product'] );
+

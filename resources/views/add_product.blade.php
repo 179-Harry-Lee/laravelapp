@@ -21,7 +21,13 @@
                             {{-- ten san pham --}}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Ten san pham</label>
-                            <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Ten danh muc muon tao">
+                            <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Ten san pham muon tao">
+                        </div>
+
+                            {{-- Ten tac gia --}}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Ten tac gia</label>
+                            <input type="text" name="product_author" class="form-control" id="exampleInputEmail1" placeholder="Ten tac gia muon them">
                         </div>
 
                             {{--  mo ta noi dung san pham --}}
@@ -59,8 +65,8 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Hien thi</label>
                             <select name="product_status" class="form-control input-sm m-bot15">
-                                <option value="0">An</option>
-                                <option value="1">Hien thi</option>
+                                <option value="0">Hien Thi</option>
+                                <option value="1">An</option>
                                 
                             </select>
                         </div>

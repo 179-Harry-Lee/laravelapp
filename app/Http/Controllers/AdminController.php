@@ -10,10 +10,20 @@ use Illuminate\Support\Facades\Session as FacadesSession;
 
 class AdminController extends Controller
 {
+    public function AuthLogin(){
+        $admin_id = FacadesSession::get('admin_id');
+        if($admin_id){
+            Redirect::to('dashboard');
+        }else{
+            Redirect::to('adminlogin')->send();
+        }
+    }
+
     public function adminlogin(){
         return view('adminlogin');
     }
     public function showdashboard(){
+        $this->AuthLogin();
         return view('dashboard');
     }
     //dang nhap voi account admin 
@@ -38,6 +48,7 @@ class AdminController extends Controller
         }
     }
     public function logout(Request $request){
+        $this->AuthLogin();
         FacadesSession::put('admin_name',null);
         FacadesSession::put('admin_id',null);
         return Redirect::to('/adminlogin');

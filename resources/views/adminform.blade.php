@@ -292,7 +292,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="grids.html">Grids</a></li>
                     </ul>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-bullhorn"></i>
                         <span>Quan Ly Don Hang</span>
@@ -328,8 +328,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="form_validation.html">Form Validation</a></li>
 						<li><a href="dropzone.html">Dropzone</a></li>
                     </ul>
-                </li>
-                <li class="sub-menu">
+                </li> --}}
+                {{-- <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-envelope"></i>
                         <span>Mail </span>
@@ -375,7 +375,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <i class="fa fa-user"></i>
                         <span>Login Page</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>            </div>
         <!-- sidebar menu end-->
     </div>
@@ -390,7 +390,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
  <!-- footer -->
 		  <div class="footer">
 			<div class="wthree-copyright">
-			  <p> Chom Tu Tren Mang By DungLoli <a href="http://w3layouts.com">@Nhom</a></p>
+			  <p> Chom Tu Tren Mang By DungLoli <a href="http://w3layouts.com">@Nhom 3</a></p>
 			</div>
 		  </div>
   <!-- / footer -->

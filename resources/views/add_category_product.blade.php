@@ -29,8 +29,8 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Hien thi</label>
                             <select name="category_product_status" class="form-control input-sm m-bot15">
-                                <option value="0">An</option>
-                                <option value="1">Hien thi</option>
+                                <option value="0">Hien thi</option>
+                                <option value="1">An</option>
                                 
                             </select>
                         </div>
