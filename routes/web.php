@@ -26,7 +26,7 @@ Route::get('/trangchu',[HomeController::class,'index'] );
 Route::get('/login',[HomeController::class,'login'] );
 
     // Logout user
-Route::get('/logout',[HomeController::class,'userlogout'] );
+Route::get('/userlogout',[HomeController::class,'userlogout'] );
     
     //dang nhap trang admin
 Route::post('/user-home',[HomeController::class,'homeUser'] );

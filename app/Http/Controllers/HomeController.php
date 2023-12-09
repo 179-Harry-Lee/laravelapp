@@ -21,7 +21,10 @@ class HomeController extends Controller
     public function index(){
         $cate_product = DB::table('tbl_category_product')->where('category_status','0')->orderby('category_id','desc')->get();
         $all_product = DB::table('tbl_product')->where('product_status','0')->orderby('product_id','desc')-> limit(10)->get();
+        
+        // $all_account = DB::table('tbl_acc')->where('acc_permission','0','1')->orderby('acc_id','acc')->get() ;
 
+        
         return view('welcome')->with('category',$cate_product)->with('all_product',$all_product);
     }
 
@@ -64,7 +67,8 @@ class HomeController extends Controller
         $this->AuthLogin();
         FacadesSession::put('acc_name',null);
         FacadesSession::put('acc_id',null);
-        return Redirect::to('/login');
+        FacadesSession::put('acc_permission',null);
+        return Redirect::to('/');
 
     }
 }

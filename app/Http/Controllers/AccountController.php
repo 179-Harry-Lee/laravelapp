@@ -52,7 +52,7 @@ class AccountController extends Controller
 
     public function active_account($acc_id){
         $this->AuthLogin();
-        DB::table('tbl_acc')->where('acc_id',$acc_id)->update(['acc_permission' =>0]);
+        DB::table('tbl_acc')->where('acc_id',$acc_id)->update(['acc_permission' =>2]);
         FacadesSession::put('message','Hien thi danh muc san pham thanh cong');
         return Redirect::to('all-account');
     }

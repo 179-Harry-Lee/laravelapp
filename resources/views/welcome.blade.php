@@ -65,11 +65,33 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="topbar-links">
-                                                <a href="/login"><i class="fa fa-lock"></i>Login / Register</a>
+                                            <span>
+                                                <?php
+                                                $name = Session::get('acc_name');
+                                                if($name){
+                                                    echo  $name ;
+                                                }    
+                                                ?>
+
+                                            </span>
+                                                <span>|</span>
+                                    {{-- Phan quyen dang nhap --}}
+                                                <?php
+                                                $permission = Session::get('acc_permission');
+
+                                            if($permission == 1){
+                                                echo '<a href="/userlogout"><i class="fa fa-lock"></i>Logout</a>';
+                                            }elseif ($permission == 2 ){
+                                                echo '<a href="/userlogout"><i class="fa fa-lock"></i>logout</a>';
+                                            }else{
+                                               echo '<a href="/login"><i class="fa fa-lock"></i>Login / Register</a>';
+                                            }
+                                            
+                                                ?>
                                                 <span>|</span>
                                                 <div class="header-cart dropdown">
                                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                                                        <i class="fa fa-shopping-cart"></i>
+                                                        <i class="fa fa-star"></i>
                                                         <small>0</small>
                                                     </a>
                                                     <div class="dropdown-menu cart-dropdown">
