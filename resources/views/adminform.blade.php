@@ -278,7 +278,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{URL::to('/add-category-product')}}">Them Danh Muc</a></li>
 						<li><a href="{{URL::to('/all-category-product')}}">Xuat Danh Muc</a></li>
-                        <li><a href="grids.html">Grids</a></li>
+                      
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -289,7 +289,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
 						<li><a href="{{URL::to('/add-product')}}">Them san pham</a></li>
 						<li><a href="{{URL::to('/all-product')}}">Xuat danh sach san pham</a></li>
-                        <li><a href="grids.html">Grids</a></li>
+                       
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quan Ly Tai Khoan</span>
+                    </a>
+                    <ul class="sub">
+						<li><a href="{{URL::to('/add-account')}}">Them tai khoan</a></li>
+						<li><a href="{{URL::to('/all-account')}}">Xuat danh sach tai khoan</a></li>
+                        
                     </ul>
                 </li>
                 {{-- <li>

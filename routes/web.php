@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AccController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\HomeController;
@@ -22,9 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [HomeController::class,'index']);
 Route::get('/trangchu',[HomeController::class,'index'] );
 
-// Login user
+    // Login user
 Route::get('/login',[HomeController::class,'login'] );
-// Route::get('/',[HomeController::class,'showhome'] );
+
+    // Logout user
+Route::get('/logout',[HomeController::class,'userlogout'] );
     
     //dang nhap trang admin
 Route::post('/user-home',[HomeController::class,'homeUser'] );
@@ -41,6 +43,30 @@ Route::post('/admin-dashboard',[AdminController::class,'dashboard'] );
 
     //Dang xuat
 Route::get('/logout',[AdminController::class,'logout'] );
+
+    //Danh muc tai khoan
+    Route::get('/add-account',[AccountController::class,'add_account'] );
+
+
+    Route::get('/all-account',[AccountController::class,'all_account'] );
+    
+    
+    Route::post('/save-account',[AccountController::class,'save_account'] );
+    
+        //Hien thi loai tai khoan trong trang xuat danh muc tai khoanr
+    Route::get('/unactive-account/{acc_id}',[AccountController::class,'unactive_account'] );
+    Route::get('/active-account/{acc_id}',[AccountController::class,'active_account'] );
+        
+    
+        //Cap nhat danh muc tai khoan
+    Route::get('/edit-account/{acc_id}',[AccountController::class,'edit_account'] );
+    
+    Route::post('/update-account/{acc_id}',[AccountController::class,'update_account'] );
+    
+    
+    Route::get('/delete-account/{acc_id}',[AccountController::class,'delete_account'] );
+
+
 
     //Danh muc san pham
 Route::get('/add-category-product',[CategoryProduct::class,'add_category_product'] );
