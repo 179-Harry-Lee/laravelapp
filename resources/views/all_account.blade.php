@@ -62,7 +62,7 @@
             
               <td><span class="text-ellipsis">
                 <?php
-              if($acc->acc_permission==0){
+              if($acc->acc_permission==1){
                 ?>
                 <a href="{{URL::to('/unactive-account/'.$acc->acc_id)}}"><span>Tac Gia</span></a> 
                 <?php
