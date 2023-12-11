@@ -84,7 +84,9 @@
                                             }elseif ($permission == 2 ){
                                                 echo '<a href="/userlogout"><i class="fa fa-lock"></i>logout</a>';
                                             }else{
-                                               echo '<a href="/login"><i class="fa fa-lock"></i>Login / Register</a>';
+                                               echo '<a href="/login" ><i class="fa fa-lock"></i>Login</a>';
+                                               echo '|';
+                                               echo '<a href="/register" ><i class="fa fa-lock"> </i>Register</a>';
                                             }
                                             
                                                 ?>

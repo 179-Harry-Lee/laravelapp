@@ -28,8 +28,12 @@ Route::get('/login',[HomeController::class,'login'] );
     // Logout user
 Route::get('/userlogout',[HomeController::class,'userlogout'] );
     
-    //dang nhap trang admin
+    //dang nhap trang user
 Route::post('/user-home',[HomeController::class,'homeUser'] );
+
+    //dang ky trang user
+Route::get('/register',[HomeController::class,'register'] );
+Route::post('/save-register',[HomeController::class,'save_register'] );
 
 
 
@@ -53,7 +57,7 @@ Route::get('/logout',[AdminController::class,'logout'] );
     
     Route::post('/save-account',[AccountController::class,'save_account'] );
     
-        //Hien thi loai tai khoan trong trang xuat danh muc tai khoanr
+        //Hien thi loai tai khoan trong trang xuat danh muc tai khoan
     Route::get('/unactive-account/{acc_id}',[AccountController::class,'unactive_account'] );
     Route::get('/active-account/{acc_id}',[AccountController::class,'active_account'] );
         

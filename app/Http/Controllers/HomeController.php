@@ -71,4 +71,22 @@ class HomeController extends Controller
         return Redirect::to('/');
 
     }
+
+    public function register(Request $request){
+        
+        return view('/register');
+    }
+
+    public function save_register(Request $request){
+        
+        $data = array();
+        $data['acc_name'] = $request->acc_name;
+        $data['acc_email'] = $request->acc_email;
+        $data['acc_phone'] = $request->acc_phone;
+        $data['acc_password'] = md5($request->acc_password);
+        $data['acc_permission'] = $request->acc_permission;
+         DB::table('tbl_acc')->insert($data);
+         FacadesSession::put('message','Tao tai khoan thanh cong!!! Hay dang nhap');
+         return Redirect::to('/login');
+    }
 }
