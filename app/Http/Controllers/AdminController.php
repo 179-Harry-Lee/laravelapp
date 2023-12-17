@@ -29,9 +29,13 @@ class AdminController extends Controller
     //dang nhap voi account admin 
     public function dashboard(Request $request){
         $admin_email = $request->admin_email;
-        $admin_password = md5($request->admin_password);
+        $admin_password = $request->admin_password;
         $admin_name = $request->admin_name;
         $admin_id = $request->admin_id;
+        $admin_permission = $request->admin_permission;
+        $admin_sex = $request->admin_sex;
+        $get_image =$request->file('admin_image');
+
         
         $resuit = DB::table('tbl_admin')->where('admin_email',$admin_email)->where('admin_password',$admin_password)->first();
         if($resuit){
@@ -40,6 +44,7 @@ class AdminController extends Controller
             //12/2/2023: Logout thanh cong, xuat thong bao khi dang nhap sai
             FacadesSession::put('admin_name',$resuit->admin_name);
             FacadesSession::put('admin_id',$resuit->admin_id);
+            FacadesSession::put('admin_permission',$resuit->admin_permission);
             return Redirect::to('/dashboard');
         }else{
             // Session::put('message','Tai Khoanr hoac mat khau bi sai');
@@ -51,6 +56,7 @@ class AdminController extends Controller
         $this->AuthLogin();
         FacadesSession::put('admin_name',null);
         FacadesSession::put('admin_id',null);
+        FacadesSession::put('admin_permission',null);
         return Redirect::to('/adminlogin');
 
     }

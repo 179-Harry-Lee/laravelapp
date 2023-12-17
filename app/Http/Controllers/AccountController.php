@@ -35,11 +35,33 @@ class AccountController extends Controller
         $this->AuthLogin();
 
         $data = array();
-        $data['category_name'] = $request->category_product_name;
-        $data['category_desc'] = $request->category_product_desc;
-        $data['category_status'] = $request->category_product_status;
-         DB::table('tbl_category_product')->insert($data);
-         FacadesSession::put('message','Them danh muc san pham thanh cong');
+        $data['acc_name'] = $request->acc_name;
+        $data['acc_email'] = $request->acc_email;
+        $data['acc_phone'] = $request->acc_phone;
+        $data['acc_password'] = $request->acc_password;
+        $data['acc_sex'] = $request->acc_sex;
+        $data['acc_codecard'] = $request->acc_codecard;
+        $data['acc_ngaydangky'] = $request->acc_ngaydangky;
+        $data['acc_ngayhethan'] = $request->acc_ngayhethan;
+        $get_image =$request->file('acc_image');
+
+        if($get_image){
+            // Lay duoi .jpg
+        $get_name_image = $get_image->getClientOriginalName();
+        // Ham Current giup phan tach ten vaf duoi jpg
+        $name_image = current(explode('.',$get_name_image));
+        $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+        $get_image->move('upload/nguoidoc',$new_image);
+        $data['acc_image'] = $new_image;
+        DB::table('tbl_acc')->insert($data);
+        FacadesSession::put('message','them san pham thanh cong');
+        return Redirect::to('add-account');
+        }
+        $data['acc_image'] ='';
+
+
+         DB::table('tbl_acc')->insert($data);
+         FacadesSession::put('message','Them tai khoan thanh cong');
          return Redirect::to('all-account');
     }
 
@@ -57,29 +79,35 @@ class AccountController extends Controller
         return Redirect::to('all-account');
     }
     
-    public function edit_category_product($category_product_id){
+    public function edit_account($acc_id){
         $this->AuthLogin();
-        $edit_category_product = DB::table('tbl_category_product')->where('category_id',$category_product_id)->get() ;
-        $manager_category_product = view('edit_category_product')->with('edit_category_product',$edit_category_product) ;
-        return view('adminform')->with('edit_category_product',$manager_category_product) ;
+        $edit_account = DB::table('tbl_acc')->where('acc_id',$acc_id)->get() ;
+        $manager_account = view('edit_account')->with('edit_account',$edit_account) ;
+        return view('adminform')->with('edit_account',$manager_account) ;
     }
 
-    public function update_category_product(Request $request,$category_product_id){
+    public function update_account(Request $request,$acc_id){
         $this->AuthLogin();
+    
         $data = array();
-        $data['category_name'] = $request->category_product_name;
-        $data['category_desc'] = $request->category_product_desc;
+        $data['acc_name'] = $request->acc_name;
+        $data['acc_email'] = $request->acc_email;
+        $data['acc_phone'] = $request->acc_phone;
+        $data['acc_password'] = $request->acc_password;
+        $data['acc_sex'] = $request->acc_sex;
+        $data['acc_codecard'] = $request->acc_codecard;
+        $data['acc_ngayhethan'] = $request->acc_ngayhethan;
 
-        DB::table('tbl_category_product')->where('category_id',$category_product_id)->update($data);
-        FacadesSession::put('message','Cap nhat danh muc thanh cong');
-        return Redirect::to('all-category-product');
+        DB::table('tbl_acc')->where('acc_id',$acc_id)->update($data);
+        FacadesSession::put('message','Cap nhat tai khoan thanh cong');
+        return Redirect::to('all-account');
         
     }
     
-    public function delete_category_product($category_product_id){
+    public function delete_account($acc_id){
         $this->AuthLogin();
-        DB::table('tbl_category_product')->where('category_id',$category_product_id)->delete();
-        FacadesSession::put('message','Xoa san pham thanh cong');
-        return Redirect::to('all-category-product');
+        DB::table('tbl_acc')->where('acc_id',$acc_id)->delete();
+        FacadesSession::put('message','Xoa tai khoan thanh cong');
+        return Redirect::to('all-account');
     }
 }

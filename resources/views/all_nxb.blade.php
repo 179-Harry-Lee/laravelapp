@@ -3,14 +3,15 @@
 <div class="table-agile-info">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Xuat the hien co
+        Nha xuat ban
       </div>
       <div class="row w3-res-tb">
         <div class="col-sm-5 m-b-xs">
           <select class="input-sm form-control w-sm inline v-middle">
-            <option value="1">Con Han</option>
-            <option value="2">Het han</option>
-
+            <option value="0">aaa</option>
+            <option value="1">Phieu luu</option>
+            <option value="2">Tam ly tinh cam</option>
+            <option value="3">Kinh di</option>
           </select>
           <button class="btn btn-sm btn-default">Apply</button>                
         </div>
@@ -41,40 +42,27 @@
                   <input type="checkbox"><i></i>
                 </label>
               </th>
-              <th>Ho Va Ten</th>
-              <th>Email</th>
-              <th>Gioi Tinh</th>
-              <th>Password</th>
-              <th>Hinh anh</th>
-              <th>SDT</th>
-              <th>Ma The</th>
-              <th>Ngay dang ky</th>
-              <th>Ngay het han</th>
+              <th>Ten Nha Xuat Ban</th>
+              <th>Ma Nha Xuat Ban</th>
+              
 
               <th style="width:30px;"></th>
             </tr>
           </thead>
           <tbody>
-            @foreach($all_account as $key => $acc)
+            @foreach($all_nxb as $key => $nxb)
             <tr>    
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-              <td>{{$acc->acc_name}}</td>
-              <td>{{$acc->acc_email}}</td>
-              <td>{{$acc->acc_sex}}</td>
-              <td>{{$acc->acc_password}}</td>
-              <td><img src="upload/nguoidoc/{{$acc->acc_image}}" height="100px" width="100px"></td>
-              <td>{{$acc->acc_phone}}</td>
-              <td>{{$acc->acc_codecard}}</td>
-              <td>{{$acc->acc_ngaydangky}}</td>
-              <td>{{$acc->acc_ngayhethan}}</td>
-
+              <td>{{$nxb->nxb_name}}</td>
+              <td>{{$nxb->nxb_code}}</td>
               
+            
               
             
               <td>
-                <a href="{{URL::to('/edit-account/'.$acc->acc_id)}}" class="active" ui-toggle-class="">
+                <a href="{{URL::to('/edit-nxb/'.$nxb->nxb_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-                <a onclick="return confirm('Ban co chac muon xoa san pham nay ko???')" href="{{URL::to('/delete-account/'.$acc->acc_id)}}" class="active" ui-toggle-class="">
+                <a onclick="return confirm('Ban cos chac muon xoa ko???')" href="{{URL::to('/delete-nxb/'.$nxb->nxb_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-times text-danger text"></i>
                 </a>
               </td>

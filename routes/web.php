@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AdminAccController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NxbController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TacgiaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,6 +51,25 @@ Route::post('/admin-dashboard',[AdminController::class,'dashboard'] );
     //Dang xuat
 Route::get('/logout',[AdminController::class,'logout'] );
 
+    //danh muc tai khoan nhan vien
+    Route::get('/add-admin',[AdminAccController::class,'add_admin'] );
+
+    Route::get('/all-admin',[AdminAccController::class,'all_admin'] );
+    
+    
+    Route::post('/save-admin',[AdminAccController::class,'save_admin'] );
+
+
+    Route::get('/edit-admin/{admin_id}',[AdminAccController::class,'edit_admin'] );
+
+    Route::post('/update-admin/{admin_id}',[AdminAccController::class,'update_admin'] );
+    
+    
+    Route::get('/delete-admin/{admin_id}',[AdminAccController::class,'delete_admin'] );
+
+
+
+
     //Danh muc tai khoan
     Route::get('/add-account',[AccountController::class,'add_account'] );
 
@@ -63,30 +85,30 @@ Route::get('/logout',[AdminController::class,'logout'] );
         
     
         //Cap nhat danh muc tai khoan
-    Route::get('/edit-account/{acc_id}',[AccountController::class,'edit_account'] );
+    Route::get('/edit-account/{account_id}',[AccountController::class,'edit_account'] );
     
-    Route::post('/update-account/{acc_id}',[AccountController::class,'update_account'] );
+    Route::post('/update-account/{account_id}',[AccountController::class,'update_account'] );
     
     
-    Route::get('/delete-account/{acc_id}',[AccountController::class,'delete_account'] );
+    Route::get('/delete-account/{account_id}',[AccountController::class,'delete_account'] );
 
 
 
     //Danh muc san pham
-Route::get('/add-category-product',[CategoryProduct::class,'add_category_product'] );
-Route::get('/all-category-product',[CategoryProduct::class,'all_category_product'] );
-Route::post('/save-category-product',[CategoryProduct::class,'save_category_product'] );
+Route::get('/add-category-book',[CategoryProduct::class,'add_category_book'] );
+Route::get('/all-category-book',[CategoryProduct::class,'all_category_book'] );
+Route::post('/save-category-book',[CategoryProduct::class,'save_category_book'] );
 
     //Hien thi icon trong trang xuat danh muc san pham
-Route::get('/unactive-category-product/{category_product_id}',[CategoryProduct::class,'unactive_category_product'] );
-Route::get('/active-category-product/{category_product_id}',[CategoryProduct::class,'active_category_product'] );
+Route::get('/unactive-category-book/{category_id}',[CategoryProduct::class,'unactive_category_book'] );
+Route::get('/active-category-book/{category_id}',[CategoryProduct::class,'active_category_book'] );
     //Cap nhat danh muc san pham
-Route::get('/edit-category-product/{category_product_id}',[CategoryProduct::class,'edit_category_product'] );
+Route::get('/edit-category-book/{category_id}',[CategoryProduct::class,'edit_category_book'] );
 
-Route::post('/update-category-product/{category_product_id}',[CategoryProduct::class,'update_category_product'] );
+Route::post('/update-category-book/{category_id}',[CategoryProduct::class,'update_category_book'] );
 
 
-Route::get('/delete-category-product/{category_product_id}',[CategoryProduct::class,'delete_category_product'] );
+Route::get('/delete-category-book/{category_id}',[CategoryProduct::class,'delete_category_book'] );
 
 
     //San pham
@@ -104,3 +126,33 @@ Route::get('/delete-product/{product_id}',[ProductController::class,'delete_prod
 Route::get('/unactive-product/{product_id}',[ProductController::class,'unactive_product'] );
 Route::get('/active-product/{product_id}',[ProductController::class,'active_product'] );
 
+
+
+    //Danh sach Nha xuat ban
+Route::get('/all-nxb',[NxbController::class,'all_nxb'] );
+Route::get('/add-nxb',[NxbController::class,'add_nxb'] );
+Route::post('/save-nxb',[NxbController::class,'save_nxb'] );
+
+Route::get('/edit-nxb/{nxb_id}',[NxbController::class,'edit_nxb'] );
+    
+Route::post('/update-nxb/{nxb_id}',[NxbController::class,'update_nxb'] );
+
+
+Route::get('/delete-nxb/{nxb_id}',[NxbController::class,'delete_nxb'] );
+
+
+
+    //Danh sach Tac gia
+Route::get('/all-tacgia',[TacgiaController::class,'all_tacgia'] );
+Route::get('/add-tacgia',[TacgiaController::class,'add_tacgia'] );
+Route::post('/save-tacgia',[TacgiaController::class,'save_tacgia'] );
+
+Route::get('/edit-tacgia/{tacgia_id}',[TacgiaController::class,'edit_tacgia'] );
+    
+Route::post('/update-tacgia/{tacgia_id}',[TacgiaController::class,'update_tacgia'] );
+
+
+Route::get('/delete-tacgia/{tacgia_id}',[TacgiaController::class,'delete_tacgia'] );
+
+Route::get('/unactive-tacgia/{tacgia_id}',[TacgiaController::class,'unactive_tacgia'] );
+Route::get('/active-tacgia/{tacgia_id}',[TacgiaController::class,'active_tacgia'] );

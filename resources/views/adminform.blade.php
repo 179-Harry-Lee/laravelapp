@@ -270,39 +270,116 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                 </li>
                 
+                    
+                    
+                
+                <li class="sub-menu">
+                    
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quan Ly Tai Khoan Nhan vien</span>
+                    </a>
+                    <ul class="sub">
+
+						<li><a href="{{URL::to('/add-admin')}}">Them Nhan vien</a></li>
+
+						<li><a href="{{URL::to('/all-admin')}}">Xuat danh sach tai khoan nhan vien</a></li>
+
+                        
+                    </ul>
+                </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Quan Ly Danh Muc San Pham</span>
+                        <span>Quan Ly Dau Sach</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/add-category-product')}}">Them Danh Muc</a></li>
-						<li><a href="{{URL::to('/all-category-product')}}">Xuat Danh Muc</a></li>
+
+						<li><a href="{{URL::to('/add-category-book')}}">Them dau sach</a></li>
+
+						<li><a href="{{URL::to('/all-category-book')}}">Xuat danh sach dau sach</a></li>
                       
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Quan Ly San Pham</span>
+                        <span>Quan Ly Tac Gia</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/add-product')}}">Them san pham</a></li>
-						<li><a href="{{URL::to('/all-product')}}">Xuat danh sach san pham</a></li>
-                       
+
+						<li><a href="{{URL::to('/add-tacgia')}}">Them tac gia</a></li>
+
+						<li><a href="{{URL::to('/all-tacgia')}}">Xuat danh sach tac gia</a></li>
+                      
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Quan Ly Tai Khoan</span>
+                        <span>Quan Ly Sach</span>
                     </a>
                     <ul class="sub">
-						<li><a href="{{URL::to('/add-account')}}">Them tai khoan</a></li>
-						<li><a href="{{URL::to('/all-account')}}">Xuat danh sach tai khoan</a></li>
+
+						<li><a href="{{URL::to('/add-product')}}">Them sach</a></li>
+                        
+						<li><a href="{{URL::to('/all-product')}}">Xuat danh sach sach</a></li>
+                       
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                   
+                        
+                
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quan Ly Tai Khoan Nguoi Doc</span>
+                    </a>
+                    <ul class="sub">
+
+						<li><a href="{{URL::to('/add-account')}}">Them Nguoi Doc</a></li>
+
+						<li><a href="{{URL::to('/all-account')}}">Xuat danh sach tai khoan nguoi doc</a></li>
+
+
                         
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quan Ly danh sach nha xuat ban</span>
+                    </a>
+                    <ul class="sub">
+
+						<li><a href="{{URL::to('/add-nxb')}}">Them nha xuat ban</a></li>
+
+						<li><a href="{{URL::to('/all-nxb')}}">Xuat danh sach nha xuat ban</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quan Ly danh sach sach da muon</span>
+                    </a>
+                    <ul class="sub">
+
+						<li><a href="{{URL::to('/add-nxb')}}">Them nha xuat ban</a></li>
+
+						<li><a href="{{URL::to('/all-nxb')}}">Xuat danh sach sach da dc muon</a></li>
+                        
+                    </ul>
+                </li>
+
+                
+                
+
+                
+                
+                
+                
                 {{-- <li>
                     <a href="fontawesome.html">
                         <i class="fa fa-bullhorn"></i>

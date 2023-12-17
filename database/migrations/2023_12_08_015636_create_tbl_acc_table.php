@@ -17,8 +17,14 @@ return new class extends Migration
             $table->string('acc_email',100);
             $table->string('acc_password');
             $table->string('acc_name');
+            $table->string('acc_sex');
             $table->string('acc_phone');
-            $table->integer('acc_permission');
+            $table->string('acc_image');
+            $table->string('acc_codecard');
+            $table->date('acc_ngaydangky');
+            $table->date('acc_ngayhethan');
+            
+
             $table->timestamps();
         });
     }

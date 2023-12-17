@@ -321,21 +321,19 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <figure>
-                        <img alt="Home Slide" src="{{('frontend/images/header-slider/home-v1/header-slide.jpg')}}" />
+                        <img alt="Home Slide" src="{{('frontend/images/header-slider/home-v1/tinhloli2.jpg')}}"  />
                     </figure>
                     <div class="container">
                         <div class="carousel-caption">
-                            <h3>Trang Website Ban Sach</h3>
-                            <h2>Do 5 Thanh Vien Quan Ly</h2>
-                            <p>Co cac the loai sach, truyen ma ban can</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">    
-                                <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="#" class="btn btn-default">Purchase</a>
-                            </div>
+                            <h3>Thu vien</h3>
+                            <h2>TinhLoli</h2>
+                            <p> Co cac the loai sach, truyen ma ban can</p>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="item">
+                
+                {{-- <div class="item">
                     <figure>
                         <img alt="Home Slide" src="{{('frontend/images/header-slider/home-v1/header-slide.jpg')}}" />
                     </figure>
@@ -350,23 +348,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <figure>
-                        <img alt="Home Slide" src="{{('frontend/images/header-slider/home-v1/header-slide.jpg')}}" />
-                    </figure>
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h3>Trang Website Ban Sach</h3>
-                            <h2>Do 5 thanh vien quan ly</h2>
-                            <p>Co cac the loai sach ma ban can</p>
-                            <div class="slide-buttons hidden-sm hidden-xs">    
-                                <a href="#" class="btn btn-primary">Read More</a>
-                                <a href="#" class="btn btn-default">Purchase</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> --}}
+                
             </div>
             
             <!-- Controls -->
@@ -518,7 +501,9 @@
 
                         
                         <figure>
-                            <img src="{{URL::to('upload/product/'.$product->product_image)}}" alt="New Releaase" height="50" width="50" />
+                            <div class="imagebook">
+                            <img src="{{URL::to('upload/product/'.$product->product_image)}}" alt="New Releaase" class="imagechange" />
+                            </div>
                             <figcaption class="bg-orange">
                                 <div class="info-block">
                                     <h4>{{$product->product_name}}</h4>

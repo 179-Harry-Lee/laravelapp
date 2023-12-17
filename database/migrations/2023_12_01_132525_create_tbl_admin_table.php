@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('admin_email',100);
             $table->string('admin_password');
             $table->string('admin_name');
+            $table->string('admin_sex');
+            $table->string('admin_image');
             $table->string('admin_phone');
+            $table->integer('admin_permission');
             //Tu dong them thoi gian taoj table nay
             $table->timestamps();
         });

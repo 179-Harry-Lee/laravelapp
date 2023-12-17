@@ -19220,3 +19220,18 @@ a:focus {
 .bx-wrapper .bx-pager.bx-default-pager a.active {
   background: #ff7236;
 }
+
+.imagebook{
+  height: 500px;
+  width: 500px;
+}
+
+.imagechange{
+  height: 350px;
+  width: 450px;
+}
+
+.tinhloli{
+  height: 300px;
+  width: 424x;
+}

@@ -3,14 +3,15 @@
 <div class="table-agile-info">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Xuat the hien co
+        Xuat danh muc san pham
       </div>
       <div class="row w3-res-tb">
         <div class="col-sm-5 m-b-xs">
           <select class="input-sm form-control w-sm inline v-middle">
-            <option value="1">Con Han</option>
-            <option value="2">Het han</option>
-
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk edit</option>
+            <option value="3">Export</option>
           </select>
           <button class="btn btn-sm btn-default">Apply</button>                
         </div>
@@ -41,40 +42,36 @@
                   <input type="checkbox"><i></i>
                 </label>
               </th>
-              <th>Ho Va Ten</th>
-              <th>Email</th>
-              <th>Gioi Tinh</th>
-              <th>Password</th>
-              <th>Hinh anh</th>
-              <th>SDT</th>
-              <th>Ma The</th>
-              <th>Ngay dang ky</th>
-              <th>Ngay het han</th>
+              <th>Ten danh muc</th>
+              <th>Hien thi</th>
 
               <th style="width:30px;"></th>
             </tr>
           </thead>
           <tbody>
-            @foreach($all_account as $key => $acc)
+            @foreach($all_category_book as $key => $cate_book)
             <tr>    
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-              <td>{{$acc->acc_name}}</td>
-              <td>{{$acc->acc_email}}</td>
-              <td>{{$acc->acc_sex}}</td>
-              <td>{{$acc->acc_password}}</td>
-              <td><img src="upload/nguoidoc/{{$acc->acc_image}}" height="100px" width="100px"></td>
-              <td>{{$acc->acc_phone}}</td>
-              <td>{{$acc->acc_codecard}}</td>
-              <td>{{$acc->acc_ngaydangky}}</td>
-              <td>{{$acc->acc_ngayhethan}}</td>
-
-              
-              
+              <td>{{$cate_book->category_name}}</td>
+              <td><span class="text-ellipsis">
+                <?php
+              if($cate_book->category_status==0){
+                ?>
+                <a href="{{URL::to('/unactive-category-book/'.$cate_book->category_id)}}"><span class="icon-eye-close"></span></a> 
+                <?php
+              }else {
+                ?>
+                  <a href="{{URL::to('/active-category-book/'.$cate_book->category_id)}}"><span class="fa fa-eye"></span></a>
+                <?php  
+              }
+                ?>
+              </span>
+              </td>
             
               <td>
-                <a href="{{URL::to('/edit-account/'.$acc->acc_id)}}" class="active" ui-toggle-class="">
+                <a href="{{URL::to('/edit-category-book/'.$cate_book->category_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-                <a onclick="return confirm('Ban co chac muon xoa san pham nay ko???')" href="{{URL::to('/delete-account/'.$acc->acc_id)}}" class="active" ui-toggle-class="">
+                <a onclick="return confirm('Ban cos chac muon xoas danh muc nayf ko???')" href="{{URL::to('/delete-category-book/'.$cate_book->category_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-times text-danger text"></i>
                 </a>
               </td>

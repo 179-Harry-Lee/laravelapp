@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_category_product', function (Blueprint $table) {
-            $table->increments('category_id');
-            $table->string('category_name');
-            $table->text('category_desc');
-            $table->integer('category_status');
+        Schema::create('tbl_tacgia', function (Blueprint $table) {
+            $table->increments('tacgia_id');
+            $table->string('tacgia_name');
+            $table->string('tacgia_email');
+            $table->string('tacgia_sex');
+            $table->string('tacgia_status');
+            $table->string('tacgia_code');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_category_product');
+        Schema::dropIfExists('tbl_tacgia');
     }
 };
