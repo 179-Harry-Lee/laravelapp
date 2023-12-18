@@ -321,9 +321,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
 
-						<li><a href="{{URL::to('/add-product')}}">Them sach</a></li>
+						<li><a href="{{URL::to('/add-book')}}">Them sach</a></li>
                         
-						<li><a href="{{URL::to('/all-product')}}">Xuat danh sach sach</a></li>
+						<li><a href="{{URL::to('/all-book')}}">Xuat danh sach sach</a></li>
                        
                     </ul>
                 </li>
@@ -362,13 +362,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Quan Ly danh sach sach da muon</span>
+                        <span>Quan Ly sach muon/tra</span>
                     </a>
                     <ul class="sub">
 
-						<li><a href="{{URL::to('/add-nxb')}}">Them nha xuat ban</a></li>
+						<li><a href="{{URL::to('/add-sachmtr')}}">Muon sach</a></li>
 
-						<li><a href="{{URL::to('/all-nxb')}}">Xuat danh sach sach da dc muon</a></li>
+						<li><a href="{{URL::to('/all-sachmtr')}}">Danh sach sach muon</a></li>
                         
                     </ul>
                 </li>

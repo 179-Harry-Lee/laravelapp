@@ -3,7 +3,7 @@
 <div class="table-agile-info">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Xuat san pham
+        Sach
       </div>
       <div class="row w3-res-tb">
         <div class="col-sm-5 m-b-xs">
@@ -42,35 +42,37 @@
                   <input type="checkbox"><i></i>
                 </label>
               </th>
-              <th>Ten san pham</th>
+              <th>Ten sach</th>
               <th>Ten tac gia</th>
-              <th>Gia tien</th>
               <th>Hinh anh san pham</th>
-              <th>Danh muc</th>
+              <th>Mo ta sach</th>
+              <th>Dau muc sach</th>
+              <th>Nha xuat ban</th>
               <th>Hien thi</th>
 
               <th style="width:30px;"></th>
             </tr>
           </thead>
           <tbody>
-            @foreach($all_product as $key => $pro)
+            @foreach($all_book as $key => $book)
             <tr>    
               <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-              <td>{{$pro->product_name}}</td>
-              <td>{{$pro->product_author}}</td>
-              <td>{{$pro->product_price}}</td>
-              <td><img src="upload/product/{{$pro->product_image}}" height="100" width="100"></td>
-              <td>{{$pro->category_name}}</td>
+              <td>{{$book->book_name}}</td>
+              <td>{{$book->tacgia_name}}</td>
+              <td><img src="upload/book/{{$book->book_image}}" height="100" width="100"></td>
+              <td>{{$book->book_desc}}</td>
+              <td>{{$book->category_name}}</td>
+              <td>{{$book->nxb_name}}</td>
             
               <td><span class="text-ellipsis">
                 <?php
-              if($pro->product_status==0){
+              if($book->book_status==0){
                 ?>
-                <a href="{{URL::to('/unactive-product/'.$pro->product_id)}}"><span class="icon-eye-close"></span></a> 
+                <a href="{{URL::to('/unactive-book/'.$book->book_id)}}"><span class="icon-eye-close"></span></a> 
                 <?php
               }else {
                 ?>
-                  <a href="{{URL::to('/active-product/'.$pro->product_id)}}"><span class="fa fa-eye"></span></a>
+                  <a href="{{URL::to('/active-book/'.$book->book_id)}}"><span class="fa fa-eye"></span></a>
                 <?php  
               }
                 ?>
@@ -78,9 +80,9 @@
               </td>
             
               <td>
-                <a href="{{URL::to('/edit-product/'.$pro->product_id)}}" class="active" ui-toggle-class="">
+                <a href="{{URL::to('/edit-book/'.$book->book_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-                <a onclick="return confirm('Ban cos chac muon xoas san pham nayf ko???')" href="{{URL::to('/delete-product/'.$pro->product_id)}}" class="active" ui-toggle-class="">
+                <a onclick="return confirm('Ban cos chac muon xoa  ko???')" href="{{URL::to('/delete-book/'.$book->book_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-times text-danger text"></i>
                 </a>
               </td>

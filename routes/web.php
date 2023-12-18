@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NxbController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SachmtrController;
 use App\Http\Controllers\TacgiaController;
 use Illuminate\Support\Facades\Route;
 
@@ -112,19 +113,19 @@ Route::get('/delete-category-book/{category_id}',[CategoryProduct::class,'delete
 
 
     //San pham
-Route::get('/add-product',[ProductController::class,'add_product'] );
-Route::post('/save-product',[ProductController::class,'save_product'] );
+Route::get('/add-book',[ProductController::class,'add_book'] );
+Route::post('/save-book',[ProductController::class,'save_book'] );
 
     //Cap nhat san pham
-Route::get('/edit-product/{product_id}',[ProductController::class,'edit_product'] );
-Route::get('/all-product',[ProductController::class,'all_product'] );
-Route::post('/update-product/{product_id}',[ProductController::class,'update_product'] );
-Route::get('/delete-product/{product_id}',[ProductController::class,'delete_product'] );
+Route::get('/edit-book/{book_id}',[ProductController::class,'edit_book'] );
+Route::get('/all-book',[ProductController::class,'all_book'] );
+Route::post('/update-book/{book_id}',[ProductController::class,'update_book'] );
+Route::get('/delete-book/{book_id}',[ProductController::class,'delete_book'] );
 
     
     //Hien thi icon trang xuan san pham
-Route::get('/unactive-product/{product_id}',[ProductController::class,'unactive_product'] );
-Route::get('/active-product/{product_id}',[ProductController::class,'active_product'] );
+Route::get('/unactive-book/{book_id}',[ProductController::class,'unactive_book'] );
+Route::get('/active-book/{book_id}',[ProductController::class,'active_book'] );
 
 
 
@@ -156,3 +157,17 @@ Route::get('/delete-tacgia/{tacgia_id}',[TacgiaController::class,'delete_tacgia'
 
 Route::get('/unactive-tacgia/{tacgia_id}',[TacgiaController::class,'unactive_tacgia'] );
 Route::get('/active-tacgia/{tacgia_id}',[TacgiaController::class,'active_tacgia'] );
+
+
+
+    //Muon tra sach
+Route::get('/all-sachmtr',[SachmtrController::class,'all_sachmtr'] );
+Route::get('/add-sachmtr',[SachmtrController::class,'add_sachmtr'] );
+Route::post('/save-sachmtr',[SachmtrController::class,'save_sachmtr'] );
+
+Route::get('/edit-sachmtr/{sachmtr_id}',[SachmtrController::class,'edit_sachmtr'] );
+    
+Route::post('/update-sachmtr/{sachmtr_id}',[SachmtrController::class,'update_sachmtr'] );
+
+
+Route::get('/delete-sachmtr/{sachmtr_id}',[SachmtrController::class,'delete_sachmtr'] );

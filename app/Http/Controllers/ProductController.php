@@ -17,24 +17,26 @@ class ProductController extends Controller
             Redirect::to('adminlogin')->send();
         }
     }
-    public function add_product(){
+    public function add_book(){
         $this->AuthLogin();
-        $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();
-        return view('add_product')->with('cate_product',$cate_product);
+        $cate_book = DB::table('tbl_category_book')->orderby('category_id','desc')->get();
+        $nxb = DB::table('tbl_nxb')->orderby('nxb_id','desc')->get();
+        $tacgia = DB::table('tbl_tacgia')->orderby('tacgia_id','desc')->get();
+        return view('add_book')->with('cate_book',$cate_book)->with('nxb',$nxb)->with('tacgia',$tacgia);
     }
 
-    public function save_product(Request $request){
+    public function save_book(Request $request){
         $this->AuthLogin();
 
         $data = array();
-        $data['product_name'] = $request->product_name;
-        $data['product_desc'] = $request->product_desc;
-        $data['product_price'] = $request->product_price;
-        $data['category_id'] = $request->product_cate;
-        $data['product_status'] = $request->product_status;
-        $data['product_author'] = $request->product_author;
+        $data['book_name'] = $request->book_name;
+        $data['book_desc'] = $request->book_desc;
+        $data['category_id'] = $request->book_cate;
+        $data['nxb_id'] = $request->nxb;
+        $data['tacgia_id'] = $request->tacgia;
+        $data['book_status'] = $request->book_status;
 
-        $get_image =$request->file('product_image');
+        $get_image =$request->file('book_image');
 
         if($get_image){
             // Lay duoi .jpg
@@ -42,63 +44,70 @@ class ProductController extends Controller
         // Ham Current giup phan tach ten vaf duoi jpg
         $name_image = current(explode('.',$get_name_image));
         $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
-        $get_image->move('upload/product',$new_image);
-        $data['product_image'] = $new_image;
-        DB::table('tbl_product')->insert($data);
+        $get_image->move('upload/book',$new_image);
+        $data['book_image'] = $new_image;
+        DB::table('tbl_book')->insert($data);
         FacadesSession::put('message','them san pham thanh cong');
-        return Redirect::to('add-product');
+        return Redirect::to('add-book');
         }
-        $data['product_image'] ='';
-         DB::table('tbl_product')->insert($data);
+        $data['book_image'] ='';
+         DB::table('tbl_book')->insert($data);
          FacadesSession::put('message','Them san pham thanh cong');
-         return Redirect::to('all-product');
+         return Redirect::to('all-book');
     }
 
 
-    public function edit_product($product_id){
+    public function edit_book($book_id){
         $this->AuthLogin();
-        $cate_product = DB::table('tbl_category_product')->orderby('category_id','desc')->get();
+        $cate_book = DB::table('tbl_category_book')->orderby('category_id','desc')->get();
+        $nxb = DB::table('tbl_nxb')->orderby('nxb_id','desc')->get();
+        $tacgia = DB::table('tbl_tacgia')->orderby('tacgia_id','desc')->get();
         
 
-        $edit_product = DB::table('tbl_product')->where('product_id',$product_id)->get() ;
+        $edit_book = DB::table('tbl_book')->where('book_id',$book_id)->get() ;
 
-        $manager_product = view('edit_product')->with('edit_product',$edit_product)->with('cate_product',$cate_product) ;
-        return view('adminform')->with('edit_product',$manager_product) ;
+        $manager_book = view('edit_book')->with('edit_book',$edit_book)->with('cate_book',$cate_book)->with('nxb',$nxb)->with('tacgia',$tacgia) ;
+        return view('adminform')->with('edit_book',$manager_book) ;
     }
 
 
-    public function all_product(){
+    public function all_book(){
         $this->AuthLogin();
-        $all_product = DB::table('tbl_product')->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')->orderBy('tbl_product.product_id','desc')->get();
-        $manager_product = view('all_product')->with('all_product',$all_product) ;
-        return view('adminform')->with('all_product',$manager_product) ;
+        $all_book = DB::table('tbl_book')
+        ->join('tbl_category_book','tbl_category_book.category_id','=','tbl_book.category_id')
+        ->join('tbl_nxb','tbl_nxb.nxb_id','=','tbl_book.nxb_id')
+        ->join('tbl_tacgia','tbl_tacgia.tacgia_id','=','tbl_book.tacgia_id')
+        ->orderBy('tbl_book.book_id','desc')->get();
+        
+        $manager_book = view('all_book')->with('all_book',$all_book) ;
+        return view('adminform')->with('all_book',$manager_book) ;
     }
 
-    public function unactive_product($product_id){
+    public function unactive_book($book_id){
         $this->AuthLogin();
-        DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>1]);
+        DB::table('tbl_book')->where('book_id',$book_id)->update(['book_status'=>1]);
         FacadesSession::put('message','An san pham thanh cong');
-        return Redirect::to('all-product');
+        return Redirect::to('all-book');
     }
 
-    public function active_product($product_id){
+    public function active_book($book_id){
         $this->AuthLogin();
-        DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status' =>0]);
+        DB::table('tbl_book')->where('book_id',$book_id)->update(['book_status' =>0]);
         FacadesSession::put('message','Hien thi san pham thanh cong');
-        return Redirect::to('all-product');
+        return Redirect::to('all-book');
     }
 
 
-    public function update_product(Request $request,$product_id){
+    public function update_book(Request $request,$book_id){
         $this->AuthLogin();
         $data = array();
-        $data['product_name'] = $request->product_name;
-        $data['product_desc'] = $request->product_desc;
-        $data['product_price'] = $request->product_price;
-        $data['category_id'] = $request->product_cate;
-        $data['product_status'] = $request->product_status;
-        $data['product_author'] = $request->product_author;
-        $get_image =$request->file('product_image');
+        $data['book_name'] = $request->book_name;
+        $data['book_desc'] = $request->book_desc;
+        $data['category_id'] = $request->book_cate;
+        $data['nxb_id'] = $request->nxb;
+        $data['tacgia_id'] = $request->tacgia;
+        $data['book_status'] = $request->book_status;
+        $get_image =$request->file('book_image');
 
         if($get_image){
             // Lay duoi .jpg
@@ -106,23 +115,23 @@ class ProductController extends Controller
         // Ham Current giup phan tach ten vaf duoi jpg
         $name_image = current(explode('.',$get_name_image));
         $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
-        $get_image->move('upload/product',$new_image);
-        $data['product_image'] = $new_image;
-        DB::table('tbl_product')->where('product_id',$product_id)->update($data);
+        $get_image->move('upload/book',$new_image);
+        $data['book_image'] = $new_image;
+        DB::table('tbl_book')->where('book_id',$book_id)->update($data);
         FacadesSession::put('message','them san pham thanh cong');
-        return Redirect::to('add-product');
+        return Redirect::to('add-book');
         }
         
-         DB::table('tbl_product')->where('product_id',$product_id)->update($data);
+         DB::table('tbl_book')->where('book_id',$book_id)->update($data);
          FacadesSession::put('message','Them san pham thanh cong');
-         return Redirect::to('all-product');
+         return Redirect::to('all-book');
         
     }
 
-    public function delete_product($product_id){
+    public function delete_book($book_id){
         $this->AuthLogin();
-        DB::table('tbl_product')->where('product_id',$product_id)->delete();
+        DB::table('tbl_book')->where('book_id',$book_id)->delete();
         FacadesSession::put('message','Xoa san pham thanh cong');
-        return Redirect::to('all-product');
+        return Redirect::to('all-book');
     }
 }
