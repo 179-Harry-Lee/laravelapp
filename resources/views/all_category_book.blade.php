@@ -3,7 +3,7 @@
 <div class="table-agile-info">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Xuat danh muc san pham
+        Danh sach dau sach
       </div>
       <div class="row w3-res-tb">
         <div class="col-sm-5 m-b-xs">
@@ -71,7 +71,7 @@
               <td>
                 <a href="{{URL::to('/edit-category-book/'.$cate_book->category_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-                <a onclick="return confirm('Ban cos chac muon xoas danh muc nayf ko???')" href="{{URL::to('/delete-category-book/'.$cate_book->category_id)}}" class="active" ui-toggle-class="">
+                <a onclick="return confirm('Ban cos chac muon xoa ko???')" href="{{URL::to('/delete-category-book/'.$cate_book->category_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-times text-danger text"></i>
                 </a>
               </td>

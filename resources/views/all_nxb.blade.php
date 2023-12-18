@@ -62,7 +62,7 @@
               <td>
                 <a href="{{URL::to('/edit-nxb/'.$nxb->nxb_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-pencil-square-o text-success text-active"></i></a>
-                <a onclick="return confirm('Ban cos chac muon xoa ko???')" href="{{URL::to('/delete-nxb/'.$nxb->nxb_id)}}" class="active" ui-toggle-class="">
+                <a onclick="return confirm('Ban co chac muon xoa ko???')" href="{{URL::to('/delete-nxb/'.$nxb->nxb_id)}}" class="active" ui-toggle-class="">
                   <i class="fa fa-times text-danger text"></i>
                 </a>
               </td>

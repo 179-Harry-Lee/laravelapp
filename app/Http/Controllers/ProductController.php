@@ -47,12 +47,12 @@ class ProductController extends Controller
         $get_image->move('upload/book',$new_image);
         $data['book_image'] = $new_image;
         DB::table('tbl_book')->insert($data);
-        FacadesSession::put('message','them san pham thanh cong');
+        FacadesSession::put('message','them sach thanh cong');
         return Redirect::to('add-book');
         }
         $data['book_image'] ='';
          DB::table('tbl_book')->insert($data);
-         FacadesSession::put('message','Them san pham thanh cong');
+         FacadesSession::put('message','Them sach thanh cong');
          return Redirect::to('all-book');
     }
 
@@ -86,14 +86,14 @@ class ProductController extends Controller
     public function unactive_book($book_id){
         $this->AuthLogin();
         DB::table('tbl_book')->where('book_id',$book_id)->update(['book_status'=>1]);
-        FacadesSession::put('message','An san pham thanh cong');
+        FacadesSession::put('message','An sach thanh cong');
         return Redirect::to('all-book');
     }
 
     public function active_book($book_id){
         $this->AuthLogin();
         DB::table('tbl_book')->where('book_id',$book_id)->update(['book_status' =>0]);
-        FacadesSession::put('message','Hien thi san pham thanh cong');
+        FacadesSession::put('message','Hien thi sach thanh cong');
         return Redirect::to('all-book');
     }
 
@@ -118,12 +118,12 @@ class ProductController extends Controller
         $get_image->move('upload/book',$new_image);
         $data['book_image'] = $new_image;
         DB::table('tbl_book')->where('book_id',$book_id)->update($data);
-        FacadesSession::put('message','them san pham thanh cong');
+        FacadesSession::put('message','them sach thanh cong');
         return Redirect::to('add-book');
         }
         
          DB::table('tbl_book')->where('book_id',$book_id)->update($data);
-         FacadesSession::put('message','Them san pham thanh cong');
+         FacadesSession::put('message','Them sach thanh cong');
          return Redirect::to('all-book');
         
     }
@@ -131,7 +131,7 @@ class ProductController extends Controller
     public function delete_book($book_id){
         $this->AuthLogin();
         DB::table('tbl_book')->where('book_id',$book_id)->delete();
-        FacadesSession::put('message','Xoa san pham thanh cong');
+        FacadesSession::put('message','Xoa sach thanh cong');
         return Redirect::to('all-book');
     }
 }

@@ -77,14 +77,14 @@ class AdminAccController extends Controller
     public function unactive_product($product_id){
         $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status'=>1]);
-        FacadesSession::put('message','An san pham thanh cong');
+        FacadesSession::put('message','An tai khoan thanh cong');
         return Redirect::to('all-product');
     }
 
     public function active_product($product_id){
         $this->AuthLogin();
         DB::table('tbl_product')->where('product_id',$product_id)->update(['product_status' =>0]);
-        FacadesSession::put('message','Hien thi san pham thanh cong');
+        FacadesSession::put('message','Hien thi tai khoan thanh cong');
         return Redirect::to('all-product');
     }
 

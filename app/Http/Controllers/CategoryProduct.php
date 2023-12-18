@@ -40,7 +40,7 @@ class CategoryProduct extends Controller
         $data['category_desc'] = $request->category_desc;
         $data['category_status'] = $request->category_status;
          DB::table('tbl_category_book')->insert($data);
-         FacadesSession::put('message','Them danh muc san pham thanh cong');
+         FacadesSession::put('message','Them dau muc sach thanh cong');
          return Redirect::to('all-category-book');
     }
 
@@ -54,7 +54,7 @@ class CategoryProduct extends Controller
     public function active_category_book($category_id){
         $this->AuthLogin();
         DB::table('tbl_category_book')->where('category_id',$category_id)->update(['category_status' =>0]);
-        FacadesSession::put('message','An dau sach thanh cong');
+        FacadesSession::put('message','Hien thi dau sach thanh cong');
         return Redirect::to('all-category-book');
     }
     
@@ -80,7 +80,7 @@ class CategoryProduct extends Controller
     public function delete_category_book($category_id){
         $this->AuthLogin();
         DB::table('tbl_category_book')->where('category_id',$category_id)->delete();
-        FacadesSession::put('message','Xoa san pham thanh cong');
+        FacadesSession::put('message','Xoa dau muc thanh cong');
         return Redirect::to('all-category-book');
     }
 }

@@ -4,7 +4,7 @@
     <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    Cap nhat danh muc san pham
+                    Cap nhat dau muc sach
                 </header>
                 <div class="panel-body">
                     <?php

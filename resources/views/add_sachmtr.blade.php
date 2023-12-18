@@ -4,7 +4,7 @@
     <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    Them Sach
+                    Tao thong tin muon sach
                 </header>
                 <div class="panel-body">
                     <?php

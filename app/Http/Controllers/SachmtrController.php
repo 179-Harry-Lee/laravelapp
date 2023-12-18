@@ -41,7 +41,7 @@ class SachmtrController extends Controller
         $data['sachmtr_ngaytra'] = $request->sachmtr_ngaytra;
         $data['sachmtr_status'] = $request->sachmtr_status;
         DB::table('tbl_sachmuontra')->insert($data);
-         FacadesSession::put('message','Tao muc muon sach thanh cong');
+         FacadesSession::put('message','Tao thong tin muon sach thanh cong');
          return Redirect::to('all-sachmtr');
         
     }

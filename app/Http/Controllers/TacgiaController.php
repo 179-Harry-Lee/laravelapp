@@ -42,21 +42,21 @@ class TacgiaController extends Controller
         $data['tacgia_code'] = $request->tacgia_code;
         $data['tacgia_status'] = $request->tacgia_status;
          DB::table('tbl_tacgia')->insert($data);
-         FacadesSession::put('message','Them tai khoan thanh cong');
+         FacadesSession::put('message','Them tac gia thanh cong');
          return Redirect::to('all-tacgia');
     }
 
     public function unactive_tacgia($tacgia_id){
         $this->AuthLogin();
-        DB::table('tbl_tacgia')->where('tacgia_id',$tacgia_id)->update(['tacgia_status'=>0]);
+        DB::table('tbl_tacgia')->where('tacgia_id',$tacgia_id)->update(['tacgia_status'=>1]);
         FacadesSession::put('message','An tac gia thanh cong');
         return Redirect::to('all-tacgia');
     }
 
     public function active_tacgia($tacgia_id){
         $this->AuthLogin();
-        DB::table('tbl_tacgia')->where('tacgia_id',$tacgia_id)->update(['tacgia_status' =>1]);
-        FacadesSession::put('message','Hien thi danh muc san pham thanh cong');
+        DB::table('tbl_tacgia')->where('tacgia_id',$tacgia_id)->update(['tacgia_status' =>0]);
+        FacadesSession::put('message','Hien thi tac gia thanh cong');
         return Redirect::to('all-tacgia');
     }
     
@@ -78,7 +78,7 @@ class TacgiaController extends Controller
         $data['tacgia_status'] = $request->tacgia_status;
 
         DB::table('tbl_tacgia')->where('tacgia_id',$tacgia_id)->update($data);
-        FacadesSession::put('message','Cap nhat tai khoan thanh cong');
+        FacadesSession::put('message','Cap nhat tac gia thanh cong');
         return Redirect::to('all-tacgia');
         
     }
@@ -86,7 +86,7 @@ class TacgiaController extends Controller
     public function delete_tacgia($tacgia_id){
         $this->AuthLogin();
         DB::table('tbl_tacgia')->where('tacgia_id',$tacgia_id)->delete();
-        FacadesSession::put('message','Xoa tai khoan thanh cong');
+        FacadesSession::put('message','Xoa tac gia thanh cong');
         return Redirect::to('all-tacgia');
     }
 }

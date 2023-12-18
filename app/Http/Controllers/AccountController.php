@@ -68,14 +68,14 @@ class AccountController extends Controller
     public function unactive_account($acc_id){
         $this->AuthLogin();
         DB::table('tbl_acc')->where('acc_id',$acc_id)->update(['acc_permission'=>1]);
-        FacadesSession::put('message','An danh muc san pham thanh cong');
+        FacadesSession::put('message','An tai khoan thanh cong');
         return Redirect::to('all-account');
     }
 
     public function active_account($acc_id){
         $this->AuthLogin();
         DB::table('tbl_acc')->where('acc_id',$acc_id)->update(['acc_permission' =>2]);
-        FacadesSession::put('message','Hien thi danh muc san pham thanh cong');
+        FacadesSession::put('message','Hien thi tai khoan thanh cong');
         return Redirect::to('all-account');
     }
     

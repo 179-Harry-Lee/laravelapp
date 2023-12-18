@@ -3,7 +3,7 @@
 <div class="table-agile-info">
     <div class="panel panel-default">
       <div class="panel-heading">
-        Xuat san pham
+        Danh sach tac gia
       </div>
       <div class="row w3-res-tb">
         <div class="col-sm-5 m-b-xs">
@@ -62,7 +62,7 @@
             
               <td><span class="text-ellipsis">
                 <?php
-              if($tacgia->tacgia_status==1){
+              if($tacgia->tacgia_status==0){
                 ?>
                 <a href="{{URL::to('/unactive-tacgia/'.$tacgia->tacgia_id)}}"><span class="icon-eye-close"></span></a> 
                 <?php

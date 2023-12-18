@@ -37,7 +37,7 @@ class NxbController extends Controller
         $data['nxb_name'] = $request->nxb_name;
         $data['nxb_code'] = $request->nxb_code;
          DB::table('tbl_nxb')->insert($data);
-         FacadesSession::put('message','Them tai khoan thanh cong');
+         FacadesSession::put('message','Them nha xuat ban thanh cong');
          return Redirect::to('all-nxb');
     }
     public function edit_nxb($nxb_id){
@@ -55,7 +55,7 @@ class NxbController extends Controller
         $data['nxb_code'] = $request->nxb_code;
 
         DB::table('tbl_nxb')->where('nxb_id',$nxb_id)->update($data);
-        FacadesSession::put('message','Cap nhat tai khoan thanh cong');
+        FacadesSession::put('message','Cap nhat tai nha xuat ban thanh cong');
         return Redirect::to('all-nxb');
         
     }
@@ -63,7 +63,7 @@ class NxbController extends Controller
     public function delete_nxb($nxb_id){
         $this->AuthLogin();
         DB::table('tbl_nxb')->where('nxb_id',$nxb_id)->delete();
-        FacadesSession::put('message','Xoa tai khoan thanh cong');
+        FacadesSession::put('message','Xoa nha xuat ban thanh cong');
         return Redirect::to('all-nxb');
     }
 }
