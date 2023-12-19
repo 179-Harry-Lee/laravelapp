@@ -54,7 +54,7 @@ class AccountController extends Controller
         $get_image->move('upload/nguoidoc',$new_image);
         $data['acc_image'] = $new_image;
         DB::table('tbl_acc')->insert($data);
-        FacadesSession::put('message','them san pham thanh cong');
+        FacadesSession::put('message','them tai khoan thanh cong');
         return Redirect::to('add-account');
         }
         $data['acc_image'] ='';
